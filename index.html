@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurum Studio – Loficloud</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation + Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-dark">
+  <!-- Theme Toggle 
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>-->
+
+<!-- Fixed Navigation Header -->
+<header class="navbar fixed-top py-0" 
+        data-aos="fade-down" 
+        data-aos-delay="200" 
+        data-aos-duration="600">
+  <div class="container d-flex justify-content-between align-items-center ps-0 pe-0">      
+    <!-- style="background-color: var(--bg-color); box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000;" -->
+   
+    <!-- Menu Icon -->
+    <div class="menu-wrapper">
+      <div class="menu-icon">
+        ☰
+      </div>
+      <ul class="menu-list">
+        <li><a href="#">About</a></li>
+        <li><a href="#try-demo-header">Try Demo</a></li>
+        <li><a href="#playlists">Playlists</a></li>
+        <li><a href="#focus">Focus Mode</a></li>
+        <li><a href="#contact">Collaborate With Us</a></li>
+        <li><a href="#support">Support Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo d-flex ms-0">
+      <img src="images/logo.png" alt="aurumslab logo" height="110" />
+    </div>
+
+    <!-- Nav + Theme Toggle -->
+    <div class="d-flex gap-4 ms-auto me-0">
+      <nav class="d-none d-md-flex gap-4 small">
+        <a href="#" class="nav-link1">About</a>
+        <a href="#playlists" class="nav-link2">Playlists</a>
+      </nav>
+
+      <!-- Theme Toggle Button -->
+      <button class="btn btn-toggle btn-sm" onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+  </div>
+</header>
+
+
+<!-- Hero Section -->
+
+<section class="hero-section text-center" data-aos="fade-up">
+
+  <div class="container">
+    <h1 class="display-5 fw-bold mb-3">
+      Let it <span class="text-accent">Flow</span><br>
+      with <span class="text-accent">Aurum Studio</span>
+    </h1>
+    <!-- 逐行加动画 -->
+    <p class="lead mb-2 hero-text" data-aos="fade-up" data-aos-delay="100">
+        A peaceful, design-focused space for lo-fi music.
+    </p>
+    <p class="lead mb-2 hero-text" data-aos="fade-up" data-aos-delay="300">
+        Discover curated soundscapes that help you focus and unwind.
+    </p>
+    <p class="lead mb-4 hero-text" data-aos="fade-up" data-aos-delay="500">
+        Built with simplicity and style, so you can create without distraction.
+    </p>
+
+    <div class="d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="700">
+      <a href="#try-demo-header" class="btn btn-try btn-lg">🎧 Try Demo</a>
+      <a href="#" class="btn btn-outline-dark btn-lg">Learn More</a>
+    </div>
+  </div>
+
+
+
+<!-- Demo Player Section -->
+<section id="demo" class="demo-player-section mt-5 gradient-bg demo-hidden">
+<!-- section id="demo" data-aos="zoom-in" class="demo-player-section mt-5"-->
+  <div class="container text-center">
+    <h2 id="try-demo-header">🎶 Try the Demo</h2>
+
+    <div class="vinyl-wrapper mt-4">
+      <div class="tonearm"></div>
+      <div class="vinyl">
+        <div class="shine"></div>
+        <div class="sparkle"></div>
+        <div class="label">Chill Night Drive</div>
+      </div>
+    </div>
+
+    <audio id="audio" controls>
+      <source src="songs/song1.m4a" type="audio/mp4">
+    </audio>
+  </div>
+</section>
+
+
+<!-- New release-->
+
+<section id="playlists" class="featured-playlists py-5" data-aos="fade-up">
+  <div class="container">
+    <h3 class="text-center mb-4">Playlists</h3>
+    
+    <!-- 横向滚动容器 -->
+    <div class="scroll-row">
+      
+      <!-- 卡片 1 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover9.jpg" alt="Album 1" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Late Night Vibes</h5>
+            <p class="small">A curated mix for those quiet hours.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 卡片 2 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up" data-aos-delay="100">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover11.jpg" alt="Album 2" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Morning Coffee</h5>
+            <p class="small">Smooth beats to start your day.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 卡片 3 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover10.jpg" alt="Album 3" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Study Sessions</h5>
+            <p class="small">Focus-enhancing lo-fi tracks.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 卡片 4 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up" data-aos-delay="300">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover20.jpg" alt="Album 4" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Rainy Day Chill</h5>
+            <p class="small">Ambient rain sounds with mellow beats.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- 卡片 5 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover27.jpg" alt="Album 3" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Sunset Drive</h5>
+            <p class="small">Warm rhythms and mellow melodies to soundtrack your evening cruise.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- 卡片 6 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover17.jpg" alt="Album 3" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Coding Flow</h5>
+            <p class="small">Steady beats and subtle textures to keep you in the zone.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- 卡片 7 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover24.jpg" alt="Album 3" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Midnight Mosaic</h5>
+            <p class="small">Dreamy soundscapes woven with soft percussion for late-night reflection.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- 卡片 8 -->
+      <div class="album-card flip-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="images/cover13.jpg" alt="Album 3" class="img-fluid rounded">
+          </div>
+          <div class="flip-card-back">
+            <h5 class="mb-2">Weekend Wander</h5>
+            <p class="small">Breezy grooves and laid-back vibes for your Saturday stroll.</p>
+            <a href="#" class="btn btn-sm btn-lofi mt-2">Play Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 可继续新增更多 album-card -->
+      
+    </div>
+
+    <!-- Explore more -->
+    <div class="text-center mt-4">
+      <a href="/playlists" class="explore-more">
+        Explore more&nbsp;→
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Explore more
+  <div class="text-center mt-4">
+    <a href="/playlists" class="explore-more">
+      Explore more&nbsp;→
+    </a>
+  </div> -->
+
+
+
+<!-- Focus Mode Section -->
+<!-- section class="focus-container my-5 py-5 glassy-focus" data-aos="fade-up" -->
+
+  <section id="focus" class="focus-container my-5 py-5" data-aos="fade-up">
+    <div class="container text-center">
+      <h2>Focus Mode</h2>
+      <p class="text-muted mb-4">Choose a playlist and start your focus timer.</p>
+
+      <label for="playlist-select" class="form-label">Playlist:</label><br>
+      <div class="select-wrap w-auto mx-auto mb-3">
+        <!-- 變更：class 改成 select-clean -->
+        <select id="playlist-select" class="select-clean">
+          <option value="study">Late Night Vibes</option>
+          <option value="rain">Morning Coffee</option>
+          <option value="night">Study Sessions</option>
+        </select>
+      </div>
+
+      <!-- Custom Time Input -->
+      <div class="custom-time mt-4 mb-3">
+        <label for="custom-minutes" class="form-label">Set Your Focus Time (minutes):</label><br>
+        <input type="number" id="custom-minutes" class="input-clean w-auto mx-auto" value="25" min="1" max="300" />
+      </div>
+
+      <div id="timer-display" class="display-4 fw-bold mb-3">25:00</div>
+      <!-- [新增] 音樂脈衝圈容器 -->
+      <div class="focus-visual pulse-ring" aria-hidden="true"></div>
+
+
+      <div class="timer-controls d-flex justify-content-center gap-3">
+        <button id="start-btn" class="btn btn-try btn-lg">Start Focus</button>
+        <button id="pause-btn" class="btn btn-pause btn-lg">Pause</button>
+        <button id="reset-btn" class="btn btn-outline-dark btn-lg">Reset</button>
+      </div>
+
+      <audio id="audio-player" controls style="display:none;">
+        <source id="audio-source" src="songs/study.mp3" type="audio/mp3" />
+        Your browser does not support audio playback.
+      </audio>
+    </div>
+  </section>
+
+
+<!-- Currently Listened Section -->
+
+<!-- section class="recently-played my-5 py-5" data-aos="fade-up" -->
+  <section class="recently-played py-2 mt-extra" data-aos="fade-up">
+    <div class="container">
+      <h3 class="text-center mb-4">Recently Played</h3>
+      <div id="recent-list" class="row justify-content-center gap-3">
+        <!-- Songs will be injected here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+<!-- Collaborate Section -->
+<!-- section class="contact-entry my-5 py-5" data-aos="fade-up" -->
+  <section id="contact" class="contact-entry py-2 mt-extra" data-aos="fade-up">
+
+    <div class="container text-center">
+      <h2>Collaborate With Us</h2>
+      <p class="text-muted mb-4">
+        Are you a lo-fi creator, label, or curator?<br>
+        Let’s build something beautiful together.
+      </p>
+
+      <!-- Contact Info-->
+      <div class="contact-info mt-4 ">
+        <p class="mb-2">
+          Email: <a href="mailto:aurumlab.99@gmail.com">aurumlab.99@gmail.com</a>
+        </p>
+        <p class="mb-2">
+          Instagram: <a href="https://instagram.com/aurumlab.99" target="_blank">@aurumlab.99</a>
+        </p>
+        <p class="mb-0">
+          Youtube: <a href="https://aurumlab.99.com" target="_blank">aurumlab.99.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<!-- Support Us: Buy Me a Coffee -->
+<section id="support" class="support-entry py-2 mt-extra text-center" data-aos="fade-up">
+  <!-- section id="support" class="support-entry my-5 py-5 text-center" data-aos="fade-up" -->
+    <div class="container">
+      <h2>Support us</h2>
+      <p class="text-muted mb-4">
+        If you enjoy the music and design of Aurum Studio,<br>
+        consider buying us a coffee to keep the flow going.
+      </p>
+
+      <!-- BMC Button -->
+      <a href="https://www.buymeacoffee.com/yourusername" target="_blank">
+        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
+            alt="Buy Me A Coffee" 
+            style="height: 60px; width: 217px;">
+      </a>
+
+      <p class="small text-muted mt-3">
+        Thank you for supporting independent lo-fi creators
+      </p>
+    </div>
+</section>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="main.js"></script>
+  </body>
+  </html>
+
+  <!--
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true
+    });
+    function toggleTheme() {
+      document.body.classList.toggle('theme-light');
+      document.body.classList.toggle('theme-dark');
+    }
+  </script>
+  <script>
+  const audio = document.getElementById('audio');
+  const vinyl = document.querySelector('.vinyl');
+
+  audio.addEventListener('play', () => {
+    vinyl.style.animation = 'spin 4s linear infinite';
+    vinyl.classList.add('active'); // 播放時加上 active
+  });
+
+  audio.addEventListener('pause', () => {
+    vinyl.style.animationPlayState = 'paused';
+    vinyl.classList.remove('active'); // 暫停時移除 active
+  });
+
+  audio.addEventListener('ended', () => {
+    vinyl.style.animationPlayState = 'paused';
+    vinyl.classList.remove('active');
+  });
+  </script>
+
+</body>
+</html>-->

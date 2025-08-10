@@ -1,0 +1,1018 @@
+
+
+
+
+/* Theme Variables */
+body.theme-light {
+  --bg-color: #F4EBD0;
+  --text-color: #2D2D2D;
+  --subtext-color: #6B7280;
+  --accent-color: #D49A6A;
+  /*--button-color: #8395A7;*/
+  --button-color: #E6B17E;
+  --button-shadow: #E6B17E;
+  --button2-gs: #e2c198;
+  --button2-ge: #C8965A;
+  --gradient-start: #F4EBD0;
+  --gradient-end: #f7ce95;
+  --menu-gradient:
+  linear-gradient(135deg, #A8C0FF, #FFD6A5, #C8E7D5, #F8C8DC);
+  --header-g1:rgba(49, 47, 47, 0.2);
+  --header-g2:rgba(34, 32, 32, 0.25);
+}
+
+/*body.theme-dark {
+  --bg-color: #0F172A;
+  --text-color: #E2E8F0;
+  --subtext-color: #94A3B8;
+  --accent-color: #8CA6DB;
+  --button-color: #48749b;
+  --button-shadow: #356fa9;
+  --gradient-start: #0F172A;
+  --gradient-end: #0d3253;
+}*/
+
+body.theme-dark {
+  --bg-color: #0B1E33;         /* 主背景：冷深藍 */
+  --text-color: #E5F0FA;       /* 主要文字：偏藍的冷白色 */
+  --subtext-color: #A9B8C9;    /* 次要文字：冷灰藍 */
+  --accent-color: #5998e3;     /* 強調色：明亮的天藍 */
+  --button-color: #3E6FA8;     /* 按鈕背景：冷調藍中間色 */
+  --button-shadow: #244d7b;    /* 按鈕陰影：更深的冷藍 */
+  --button2-gs: #1a3451;
+  --button2-ge: #4d5760;
+  --gradient-start: #0B1E33;   /* 漸層起點：深藍 */
+  --gradient-end: #1D3F66;     /* 漸層終點：偏灰的冷藍 */
+  --menu-gradient: linear-gradient(
+    135deg,
+    #5A8CC4F2,  /* 淺藍灰 */
+    #3D6CA1F2, /* 亮藍灰 */
+    #2C4A73F2, /* 中深藍 */
+    #1B2F4EF2 /* 深海藍 */
+  );
+  --header-g1: rgba(225, 222, 222, 0.15);
+  --header-g2: rgba(223, 223, 223, 0.18);
+}
+
+
+header.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px; 
+
+  background: linear-gradient(to bottom, var(--header-g1), transparent);
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;    /* 垂直居中内容 */
+}
+
+header.navbar.scrolled {
+  background: linear-gradient(to bottom, var(--header-g2), transparent);
+}
+
+
+.nav-link1 {
+  color: var(--subtext-color);
+  position: absolute;
+  top: 30px;  
+  right: 280px;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.nav-link1:hover {
+  color: var(--text-color);
+}
+
+.nav-link2 {
+  color: var(--subtext-color);
+  position: absolute;
+  top: 30px;  
+  right: 180px;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.nav-link2:hover {
+  color: var(--text-color);
+}
+
+.logo {
+  position: absolute;  /* 开启相对定位 */
+  top: -4px;           /* 负值越大越往上移，按需微调 */
+  left: 45px;
+}
+
+.text-accent {
+  color: var(--accent-color); /* 或直接写你想要的色值，比如 #34D399 */
+}
+
+.btn-toggle {
+  position: absolute;    /* 开启相对定位 */
+  right: 20px;
+  top: 25px;             /* 向上移动 4px，可根据需求微调 */
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;   /* 修正之前的 01rem typo */
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.btn-toggle:hover {
+  transform: scale(1.1);
+  opacity: 0.5;
+  background-color: var(--button-shadow);
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.3),   /* 深色背景下加深阴影 */
+    0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* 用按钮色或其他色点缀 aurumslab */
+.text-primary {
+  color: var(--button-color); /* 或写 #6EE7B7、#7DD3FC 等 */
+}
+
+.menu-wrapper {
+  position: absolute; /* 讓它在 header 內絕對定位 */
+  top:10px; 
+  left:11px; 
+  z-index:1001;
+  /*top: 3px;          /* 距離頂部 */
+  /*left: 10px;         /* 距離左邊 */
+}
+
+.menu-icon {
+  position:relative;
+  top: 3px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+
+/*簡易版本 menu*/
+/*.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0; /*清除 <ul> 預設內邊距
+  background: var(--bg-color);
+  position: absolute;
+  top: 90%; /*讓選單的上邊界緊貼觸發元素的下邊界
+  left: 0;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  z-index: 999;
+  width: 200px;
+}*/
+
+/*.menu-list li {
+  padding: 10px 15px;
+}
+.menu-list li a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.menu-wrapper:hover .menu-list {
+  display: flex;
+}*/
+
+/* 初始狀態：不可見、可動畫、可對齊 */
+.menu-list{
+  position:absolute; 
+  list-style:none;
+  margin:0;
+  padding:10px;
+  background: var(--bg-color);
+  position:absolute;
+  top:100%;
+  left:0;
+  min-width:300px;       /* 想更寬就調這裡 */
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
+  z-index:999;
+
+  /* 關鍵：不用 display:none，改用以下三個屬性 */
+  opacity:0;
+  transform: translateY(8px);
+  visibility:hidden;
+  pointer-events:none;
+
+  /* 平滑展開動畫 */
+  transition:
+    opacity .22s ease,
+    transform .22s ease,
+    visibility 0s linear .22s; /* 延後可見性，避免點到 */
+}
+
+/* 滑鼠移到 wrapper 才顯示 */
+.menu-wrapper:hover .menu-list{
+  opacity:1;
+  top: 70px;
+  transform: translateY(0);
+  visibility:visible;
+  pointer-events:auto;
+  background: var(--menu-gradient);
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+  transition:
+    opacity .22s ease,
+    transform .22s ease,
+    visibility 0s; /* 立即可見 */
+}
+
+
+/* 選單項目微互動 */
+.menu-list li{ padding:6px 4px; }
+.menu-list li a{
+  display:block;
+  padding: 12px 16px; /* 稍微加大內距 */
+  font-size: 1.3rem;  /* 調整字體大小 */
+  text-decoration:none;
+  color:var(--text-color);
+  border-radius:10px;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.menu-list li a:hover{
+  transform: translateX(2.5px);
+  background-color: rgba(255,255,255,.06);
+}
+
+
+/* 彩色漸層流動動畫 */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 輔助：低動態偏好 */
+@media (prefers-reduced-motion: reduce){
+  .menu-list, .menu-wrapper:hover .menu-list{
+    transition:none;
+    transform:none;
+  }
+}
+
+
+
+
+
+
+/* Global Styles */
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding-top: 70px;
+}
+
+p.text-muted {
+  color: var(--subtext-color) !important;
+}
+
+.highlight {
+  color: var(--accent-color);
+}
+
+.btn {
+  transition: 
+    transform 0.2s ease, 
+    box-shadow 0.2s ease, 
+    background-color 0.2s ease, 
+    color 0.2s ease;
+}
+
+.btn-lofi {
+  position: relative;    /* 开启相对定位 */
+  top: -12px;             /* 向上移动 4px，可根据需求微调 */
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;   /* 修正之前的 01rem typo */
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.btn-lofi:hover {
+  transform: scale(1.1);
+  opacity: 0.5;
+  background-color: var(--button-shadow);
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.3),   /* 深色背景下加深阴影 */
+    0 8px 16px rgba(0,0,0,0.2);
+}
+
+
+
+
+.btn-try {
+  position: relative;    /* 开启相对定位 */
+  top: 0px;             /* 向上移动 4px，可根据需求微调 */
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;   /* 修正之前的 01rem typo */
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.btn-try:hover {
+  /*transform: scale(1.1);*/
+  transform: translateY(-3px);
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.3),   /* 深色背景下加深阴影 */
+    0 8px 16px rgba(0,0,0,0.2);
+  background-color: var(--button-shadow);
+}
+
+.btn-outline-light {
+  border: 1px solid var(--subtext-color);
+  color: var(--subtext-color);
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-dark:hover {
+  background: linear-gradient(to right, var(--button2-gs), var(--button2-ge));
+  color: var(--bg-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(186, 170, 170, 0.15);
+}
+
+/* Toggle Theme 按钮：轻微旋转＋阴影 */
+.btn-outline-secondary:hover {
+  transform: rotate(-3deg) scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--button-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+}
+
+.hero-section {
+  /*background: var(--bg-color);*/
+  background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end), var(--gradient-start));
+  background-size: 100% 100%;
+  animation: heroGradientFlow 20s ease infinite;
+  color: var(--text-color);
+  padding-top: 8rem;
+  padding-bottom: 7rem;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  max-width: 400px;   /* 原来是600px，这里改成480px */
+  margin: 0 auto;     /* 居中排版 */
+  line-height: 2; /* 或者写 1.6、2 等，根据实际视觉效果微调 */
+}
+
+
+header {
+  background-color: transparent;
+}
+
+
+/*漸層到原始顏色*/
+.reverse-gradient-bg {
+  background: linear-gradient(
+    to bottom,
+    var(--gradient-end),
+    var(--gradient-start)
+  );
+}
+
+.final-gradient-bg {
+  background: var(--bg-color);
+}
+
+.logo img {
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+}
+
+
+/* 亮色主题：深色边框和文字 */
+body.theme-light .btn-outline-dark {
+  border-color: #2d2d2d;
+  color: #2d2d2d;
+}
+
+/* 暗色主题：白色边框和文字，更明显 */
+body.theme-dark .btn-outline-dark {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* 可选：hover 时变背景 */
+body.theme-light .btn-outline-dark:hover {
+  background-color: rgba(45, 45, 45, 0.1);
+}
+body.theme-dark .btn-outline-dark:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.btn-outline-light:hover {
+  background-color: var(--subtext-color);
+  color: var(--bg-color);
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, button {
+  font-family: 'Outfit', sans-serif;
+}
+
+.feature-icon {
+  font-size: 2rem;   /* 从原来的 2rem 改为 3rem */
+  margin-bottom: 10px;
+}
+
+#try-demo-header {
+  scroll-margin-top: 80px; /* 根据 header 高度调整 */
+  margin-top: 10rem;
+}
+
+.demo-player-section {
+  margin-top: 30px;
+}
+
+.demo-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.demo-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* 黑膠與唱針區 */
+.vinyl-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* 黑膠本體 */
+.vinyl {
+  margin-top: 2rem;
+  position: relative;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle at center, #444 0%, #111 65%);
+  border-radius: 50%;
+  border: 10px solid #222;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+  animation: spin 0s linear infinite;
+  overflow: hidden;
+}
+
+/* 🌟 旋轉的光弧 */
+.shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(255,255,255,0.1) 20%,
+    transparent 30%,
+    rgba(255,255,255,0.1) 50%,
+    transparent 70%,
+    rgba(255,255,255,0.1) 85%,
+    transparent 100%
+  );
+  opacity: 0.8;
+  animation: flash-spin 2s linear infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* 閃爍的光點 */
+.sparkle {
+  opacity: 0;
+  position: absolute;
+  top: calc(50% - 105px);   /* 往上移動 */
+  left: calc(50% - 110px);  /* 往左移動 */
+  width: 220px;   
+  height: 220px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 8%, transparent 50%);
+  border-radius: 80%;
+  animation: sparkle-flicker 1s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  filter: blur(2px); /* 加一點模糊更像光 */
+  transition: opacity 0.3s ease;
+}
+
+.vinyl.active .sparkle {
+  opacity: 0.6;
+  animation: sparkle-flicker 0.8s ease-in-out infinite alternate;
+}
+
+
+
+/* 旋轉光弧動畫 */
+@keyframes flash {
+  0%, 100% { opacity: 0.1; transform: rotate(0deg) scale(1); }
+  50%      { opacity: 0.25; transform: rotate(180deg) scale(1.05); }
+}
+
+/* 閃爍光點動畫 */
+@keyframes sparkle-flicker {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+/* 黑膠中心貼紙 - 改色 */
+.vinyl .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  background-color: #3C3C3C; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F4EBD0;
+  font-size: 1rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* 🎵 唱針臂 - 位置修正 */
+.tonearm {
+  position: absolute;
+  top: 48px;
+  left: calc(50% + 60px);
+  width: 90px;
+  height: 3px;
+  background-color: #bbb;
+  transform: rotate(120deg);
+  transform-origin: top left;
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.tonearm::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 11px;
+  height: 11px;
+  background-color: #333;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+/* 播放條與背景融合 */
+audio {
+  width: 220px;
+  margin: 0 auto;
+  display: block;
+  background-color: transparent;
+  border: none;
+  filter: none;
+  color-scheme: dark;
+}
+
+
+/* 黑膠旋轉動畫 */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+/* 定义关键帧：向上移动 + 透明度 + 颜色过渡 */
+@keyframes fadeUpColor {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+    color: rgba(45, 45, 45, 0.3); /* 亮主题下浅灰，暗主题下会被 var(--text-color) 覆盖 */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    color: var(--text-color);
+  }
+}
+
+/* 应用到所有动态文字 */
+.dynamic-text {
+  opacity: 0;
+  animation-name: fadeUpColor;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+
+.featured-playlists .flip-card {
+  perspective: 1000px; /* 3D 透视深度 */
+  cursor: pointer;
+}
+
+.featured-playlists .flip-card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 保持正方形 */
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.featured-playlists .flip-card-front,
+.featured-playlists .flip-card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+/* 正面样式 */
+.featured-playlists .flip-card-front img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+/* 背面样式 */
+.featured-playlists .flip-card-back {
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transform: rotateY(180deg);
+}
+
+/* hover 或聚焦时翻转 */
+.featured-playlists .flip-card:hover .flip-card-inner,
+.featured-playlists .flip-card:focus .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+/* 横向滚动容器 */
+.scroll-row {
+  display: flex;
+  gap: 16px;           
+  overflow-x: auto;    
+  padding: 8px 0;
+  scroll-snap-type: x mandatory; /* 可选：滚动吸附 */
+}
+
+/* 每张卡片 */
+.album-card {
+  flex: 0 0 auto;      
+  width: 200px;        
+  scroll-snap-align: start; 
+}
+
+/* 隐藏滚动条（WebKit 浏览器） */
+.scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+
+.album-card {
+  flex: 0 0 auto;      /* 固定寬度，不跟容器縮放 */
+  width: 200px;        /* 或你想要的卡片寬度 */
+  scroll-snap-align: start;  /* 吸附對齊 */
+}
+
+#playlists {
+  scroll-margin-top: 80px; /* 根據 header 高度調整 */
+}
+
+
+.explore-more {
+  font-weight: 600;
+  color: var(--accent-color);
+  font-size: 1rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.explore-more:hover {
+  color: var(--button-color);
+  transform: translateX(4px);
+}
+
+/*
+.focus-container::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.2), transparent);
+  animation: pulse 3s infinite;
+  z-index: 0;
+}
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.7; }
+}*/
+
+/* 番茄鐘區塊樣式 */
+.focus-container {
+  background-color:transparent;
+  /*background-color: var(--bg-color);*/
+  position: relative;
+  color: var(--text-color);
+  padding: 3rem 1rem;
+  border-radius: 16px;
+  /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);*/
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.custom-time {
+  text-align: center;
+}
+
+#custom-minutes {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--subtext-color);
+  max-width: 100px;
+}
+
+
+/* 時間顯示字體 */
+#timer-display {
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--subtext-color);
+  text-shadow: 0 2px 4px rgba(44, 44, 44, 0.1);
+  letter-spacing: 2px;
+}
+
+
+.timer-circle {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2e2e2e, #1a1a1a);
+  box-shadow: 0 0 30px rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-pulse {
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+
+
+
+
+
+/* 控制按鈕群組 */
+.timer-controls button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+
+.recently-played img {
+  max-width: 100px;
+  border-radius: 12px;
+  box-shadow: 0 4
+  px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.recently-played img:hover {
+  transform: scale(1.05);
+}
+
+
+.contact-info a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-info a:hover {
+  color: var(--button-color);
+  text-decoration: underline;
+}
+
+#support img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* 主題按鈕樣式：Pause（可自訂主色 --accent-color）*/
+.btn-pause {
+  background-color: transparent;
+  border: 2px dashed var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-pause:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  border-style: solid;
+}
+
+.mt-extra {margin-top: 10rem;}
+
+@media (max-width: 768px) {
+  .mt-extra {
+    margin-top: ˊrem;
+  }
+}
+
+
+
+/* 外層容器：用來放自訂箭頭 */
+.select-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* 乾淨的下拉：移除原生外觀，做出玻璃/漸層感 */
+.select-clean {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background: linear-gradient(var(--menu-gradient), color-mix(in oklab, var(--accent-color) 12%, transparent));
+  color: var(--text-color);
+
+  border: 1.5px solid color-mix(in oklab, var(--subtext-color) 60%, transparent);
+  border-radius: 12px;
+
+  padding: 10px 42px 10px 14px;   /* 右側留空給箭頭 */
+  font-size: 1rem;
+  font-weight: 400;
+
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease, color 220ms ease;
+  cursor: pointer;
+}
+
+/* Hover：主題色更明顯，文字對比更高 */
+.select-clean:hover {
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--bg-color) 80%, var(--accent-color) 20%),
+    color-mix(in oklab, var(--bg-color) 60%, var(--accent-color) 40%)
+  );
+  border-color: color-mix(in oklab, var(--accent-color) 55%, var(--subtext-color));
+}
+
+/* Focus：柔和外光圈，不刺眼 */
+.select-clean:focus {
+  outline: none;
+  /*box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--accent-color) 30%, transparent),
+    0 6px 16px rgba(0,0,0,0.12);*/
+  border-color: color-mix(in oklab, var(--accent-color) 70%, var(--subtext-color));
+}
+
+/* Disabled 狀態（如果有用到） */
+.select-clean:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* 自訂箭頭（用偽元素畫，跟著主題色） */
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 21px;
+  transform: translateY(-45%);
+  width: 10px;
+  height: 10px;
+
+  /* 用 CSS 形狀畫下箭頭 */
+  border-right: 2px solid color-mix(in oklab, var(--text-color) 80%, var(--accent-color));
+  border-bottom: 2px solid color-mix(in oklab, var(--text-color) 80%, var(--accent-color));
+  transform: translateY(-45%) rotate(45deg);
+
+  opacity: .85;
+  pointer-events: none;
+  transition: opacity 200ms ease, filter 200ms ease;
+}
+
+/* 聚焦時讓箭頭更清楚 */
+.select-wrap:focus-within::after {
+  opacity: 1;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.15));
+}
+
+
+/* 小尺寸螢幕微調字級與圓角 */
+@media (max-width: 480px) {
+  .select-clean {
+    font-size: .95rem;
+    border-radius: 10px;
+  }
+}
+
+/* 偏好減少動效的使用者（無障礙） */
+@media (prefers-reduced-motion: reduce) {
+  .select-clean,
+  .select-wrap::after {
+    transition: none;
+  }
+}
+
+
+.input-clean {
+  appearance: none; /* 移除預設樣式 */
+  background: var(--button-shadow);
+  border: 1px solid var(--accent-color);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 200;  /* 字體變細 */
+  letter-spacing: 0.5px; /* 增加字距 */
+  font-size: 1rem;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*.input-clean:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
+}*/
+
+
+
+
+
+/* 共通區塊（可重用） */
+.contact-entry, {
+  background-color: transparent;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.support-entry {
+    background-color: transparent;}
+
+.support-entry h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.support-entry p {
+  color: var(--subtext-color);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto 1.5rem auto;
+}
+
+
